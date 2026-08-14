@@ -1,0 +1,70 @@
+name: Publish to PyPI
+on:
+  release:
+    types: [published]
+  push:
+    branches: [main]
+    paths: [pyproject.toml]
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/aep-ai-sdk
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build pytest
+      - run: python -m pip install -e .
+      - run: python -m pytest
+      - name: Verify tag matches package version
+        if: github.event_name == 'release'
+        run: python -c "import os,tomllib; v=tomllib.load(open('pyproject.toml','rb'))['project']['version']; assert os.environ['GITHUB_REF_NAME']==f'v{v}'"
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
+        with:
+          packages-dir: dist/
+  verify-install:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Read package version
+        id: package
+        run: |
+          version=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Wait for PyPI propagation
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: |
+          for attempt in {1..20}; do
+            if curl --fail --silent "https://pypi.org/pypi/aep-ai-sdk/${PACKAGE_VERSION}/json" >/dev/null; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 20 ]; then
+              echo "aep-ai-sdk ${PACKAGE_VERSION} did not become available on PyPI" >&2
+              exit 1
+            fi
+            sleep 15
+          done
+      - name: Install the public distribution
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: python -m pip install --no-cache-dir "aep-ai-sdk==${PACKAGE_VERSION}"
+      - name: Import and run an installed-package example
+        run: >-
+          python -c "from aep_sdk import AEPClient;
+          transport=lambda method,url,headers,body:(201,{'id':'agent-1','status':'REGISTERED'});
+          client=AEPClient(base_url='https://api.aep.example',api_key='aep_dev_distribution_smoke_key',transport=transport);
+          agent=client.register_agent(name='Distribution Smoke Agent',endpoint='https://agent.example/a2a',protocol_version='1.0',capabilities=['capability-1']);
+          assert agent['status']=='REGISTERED'; print(agent['id'])"
