@@ -1,4 +1,4 @@
-"""Credential storage and redaction for the Python SDK."""
+≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""Credential storage and redaction for the Python SDK."""
 
 import re
 from collections.abc import Mapping, Sequence

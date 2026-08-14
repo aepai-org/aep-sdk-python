@@ -1,4 +1,4 @@
-"""Credential transport policy shared by Python SDK clients."""
+≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""Credential transport policy shared by Python SDK clients."""
 
 from ipaddress import ip_address
 from urllib.parse import SplitResult, urlsplit

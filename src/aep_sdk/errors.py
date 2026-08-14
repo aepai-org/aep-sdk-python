@@ -1,4 +1,4 @@
-"""Public Python SDK exceptions."""
+≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""Public Python SDK exceptions."""
 
 from .credential import redact_text
 

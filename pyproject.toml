@@ -1,0 +1,26 @@
+­r‡^Ñf¥–Ø¦{MìyÊ'vÃ®¶›­[build-system]
+requires = ["setuptools>=80.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aep-sdk"
+version = "0.2.0"
+description = "Python SDK for the AEP Developer Preview"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "AEP AI", email = "opensource@aepai.org" }]
+keywords = ["aep", "ai-agents", "a2a", "sdk", "developer-preview"]
+requires-python = ">=3.12"
+
+[project.urls]
+Homepage = "https://aepai.org"
+Documentation = "https://github.com/aepai-org/aep-docs"
+Repository = "https://github.com/aepai-org/aep-sdk-python"
+Issues = "https://github.com/aepai-org/aep-sdk-python/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
