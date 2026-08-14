@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠# Pull Request
+# Pull Request
 
 ## Summary
 

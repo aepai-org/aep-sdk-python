@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""Synchronous, dependency-free AEP Developer API client."""
+"""Synchronous, dependency-free AEP Developer API client."""
 
 import json
 from collections.abc import Callable, Mapping

@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""Small standard A2A Agent Card construction helpers."""
+"""Small standard A2A Agent Card construction helpers."""
 
 from typing import Any
 from urllib.parse import urlsplit

@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠# Security Policy
+# Security Policy
 
 AEP AI accepts vulnerability reports through this repository's private GitHub
 **Security ‚Üí Report a vulnerability** form. Do not open a public issue or

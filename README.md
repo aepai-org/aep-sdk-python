@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠# AEP SDK for Python
+# AEP SDK for Python
 
 Official Python Developer SDK from **AEP AI**.
 

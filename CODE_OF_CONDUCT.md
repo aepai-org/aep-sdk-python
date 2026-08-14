@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠# AEP AI Code of Conduct
+# AEP AI Code of Conduct
 
 ## Our pledge
 

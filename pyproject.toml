@@ -1,4 +1,4 @@
-­r‡^Ñf¥–Ø¦{MìyÊ'vÃ®¶›­[build-system]
+[build-system]
 requires = ["setuptools>=80.0.0"]
 build-backend = "setuptools.build_meta"
 

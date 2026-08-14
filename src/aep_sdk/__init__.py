@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠"""AEP Python SDK public surface."""
+"""AEP Python SDK public surface."""
 
 from .agent_card import WELL_KNOWN_AGENT_CARD_PATH, create_agent_card
 from .client import AEPClient, Transport

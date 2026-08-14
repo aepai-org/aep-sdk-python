@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠name: Build
+name: Build
 on:
   workflow_dispatch:
   push:

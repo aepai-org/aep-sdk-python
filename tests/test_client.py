@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠import json
+import json
 from urllib.parse import urlsplit
 
 import pytest

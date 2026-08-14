@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠# Contributing to AEP AI
+# Contributing to AEP AI
 
 Thank you for helping improve the AEP AI open-source ecosystem.
 

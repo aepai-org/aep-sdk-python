@@ -1,4 +1,4 @@
-≠rá^—f•ñÿ¶{MÏy 'v√Æ∂õ≠---
+---
 name: Bug report
 about: Report a reproducible problem in this Developer Preview repository
 title: ""
