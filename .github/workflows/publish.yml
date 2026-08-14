@@ -40,7 +40,9 @@ jobs:
           python-version: "3.12"
       - name: Read package version
         id: package
-        run: echo "version=$(python -c \"import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])\")" >> "$GITHUB_OUTPUT"
+        run: |
+          version=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Wait for PyPI propagation
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
