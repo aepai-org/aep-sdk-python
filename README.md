@@ -15,7 +15,7 @@ Official Python Developer SDK from **AEP AI**.
 
 ## Release status
 
-`v0.1.0-developer-preview` is a **Developer Preview**. It includes: Agent Identity;
+`0.2.0` is a **Developer Preview**. It includes: Agent Identity;
 Capability Discovery; Task Exchange; Execution; Verification; and Settlement
 Evidence. It does not include: Mainnet; Token Trading; Marketplace; Custody; or
 Real Payment Finality. APIs and compatibility guarantees may change.
@@ -23,10 +23,13 @@ Real Payment Finality. APIs and compatibility guarantees may change.
 ## Install
 
 ```bash
-python -m pip install aep-sdk
+python -m pip install aep-ai-sdk
 ```
 
-Python 3.12 or newer is recommended.
+The distribution name is `aep-ai-sdk`; the Python import remains `aep_sdk`.
+Python 3.12 or newer is required.
+For reproducible deployments, pin `aep-ai-sdk==0.2.0`. Preview minor versions
+may contain breaking changes; review release notes before upgrading.
 
 ## Quick Start
 
@@ -61,6 +64,10 @@ public HTTP. Loopback HTTP is development-only and requires the explicit
 
 See [aep-examples](https://github.com/aepai-org/aep-examples) and the
 [SDK guide](https://aepai.org/developers).
+
+Obtain `AEP_API_KEY` through the documented
+[Preview credential issuance process](https://aepai.org/developers/access).
+There is no public Developer Console.
 
 ## Development
 

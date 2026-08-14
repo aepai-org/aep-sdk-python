@@ -3,7 +3,7 @@ requires = ["setuptools>=80.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aep-sdk"
+name = "aep-ai-sdk"
 version = "0.2.0"
 description = "Python SDK for the AEP Developer Preview"
 readme = "README.md"
